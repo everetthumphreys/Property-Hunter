@@ -1,10 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js">
-<!--<![endif]-->
 
 <head>
     <meta charset="utf-8">
@@ -12,9 +6,17 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- css links -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- script links -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/javascript/API.js" defer></script>
+    <script src="./assets/javascript/script.js" defer></script>
+
 
 
 </head>
@@ -22,12 +24,14 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="card-panel teal header">
-                <h1>Property Hunting</h1>
+            <div class="col s12">
+                <div class="card-panel teal header">
+                    <h1>Property Hunting</h1>
+                </div>
             </div>
         </div>
         <div class="row">
-            <div class="col s4">Input
+            <div class="col s4">Template
                 <div class="divider"></div>
                 <div class="row">
                     <form class="col s12">
@@ -35,64 +39,141 @@
                             <div class="input-field col s12">
                                 <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
                                 <label for="textarea2">Parameter</label>
+                                <p>
+                                    <label>
+                                        <input name="group1" type="radio" checked />
+                                        <span>Low</span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <label>
+                                        <input name="group1" type="radio" checked />
+                                        <span>Medium</span>
+                                    </label>
+                                </p>
+                                <p>
+                                    <label>
+                                        <input name="group1" type="radio" checked />
+                                        <span>High</span>
+                                    </label>
+                                </p>
+                                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                    <i class="material-icons right">send</i>
+                                </button>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="row">
-                    <div class="collection">
-                        <a href="#!" class="collection-item active">Parameter 1</a>
-                        <a href="#!" class="collection-item">Parameter 2</a>
-                        <a href="#!" class="collection-item">Parameter 3</a>
-                        <a href="#!" class="collection-item">Parameter 4</a>
+                    <div class="col s12">
+                        <span>Ideal Apartment</span>
+                        <div class="divider"></div>
+                        <div class="collection">
+                            <p class="collection-item">Near Work <i class="material-icons right">
+                                    favorite
+                                </i></p>
+                            <p class="collection-item">Has a pool <i class="material-icons right">
+                                    favorite_border
+                                </i></p>
+                            <p class="collection-item">Large closets <i class="material-icons right">
+                                    panorama_fish_eye
+                                </i></p>
+                            <p class="collection-item">Stainless steel appliances <i class="material-icons right">
+                                    panorama_fish_eye
+                                </i></p>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col s4">Checklist
                 <div class="divider"></div>
-                <div class="collection">
-                    <form action="#">
-                        <p class="collection-item">
-                            <label>
-                                <input type="checkbox" />
-                                <span>Parameter 1</span>
-                            </label>
-                        </p>
-                        <p class="collection-item">
-                            <label>
-                                <input type="checkbox" />
-                                <span>Parameter 2</span>
-                            </label>
-                        </p>
-                        <p class="collection-item">
-                            <label>
-                                <input type="checkbox" />
-                                <span>Parameter 3</span>
-                            </label>
-                        </p>
-                        <p class="collection-item">
-                            <label>
-                                <input type="checkbox" />
-                                <span>Parameter 4</span>
-                            </label>
-                        </p>
-                    </form>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+                        <label for="textarea2">Property Name</label>
+                    </div>
                 </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <div class="collection">
+                            <form action="#">
+                                <p class="collection-item">
+                                    <label>
+                                        <input type="checkbox" />
+                                        <span>Near Work</span><i class="material-icons right">
+                                            favorite
+                                        </i>
+                                    </label>
+                                </p>
+                                <p class="collection-item">
+                                    <label>
+                                        <input type="checkbox" />
+                                        <span>Has a pool</span><i class="material-icons right">
+                                            favorite_border
+                                        </i>
+                                    </label>
+                                </p>
+                                <p class="collection-item">
+                                    <label>
+                                        <input type="checkbox" />
+                                        <span>Large closets</span><i class="material-icons right">
+                                            panorama_fish_eye
+                                        </i>
+                                    </label>
+                                </p>
+                                <p class="collection-item">
+                                    <label>
+                                        <input type="checkbox" />
+                                        <span>Stainless steel appliances</span><i class="material-icons right">
+                                            panorama_fish_eye
+                                        </i>
+                                    </label>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+                        <label for="textarea2">Notes</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+                        <label for="textarea2">Address</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        Map
+                        <div class="divider"></div>
+                    </div>
+
+                </div>
+
             </div>
             <div class="col s4">Score
                 <div class="divider"></div>
                 <div class="row">
-                    <div class="col s12 m5">
+                    <div class="col s12">
                         <div class="card-panel teal">
-                            <span class="white-text">100%</span>
-
+                            <p class="white-text valign-wrapper center-align">100%</p>
                         </div>
                         <div class="divider"></div>
                         <div class="collection">
-                            <a href="#!" class="collection-item active">Saved Property 1</a>
-                            <a href="#!" class="collection-item">Saved Property 2</a>
-                            <a href="#!" class="collection-item">Saved Property 3</a>
-                            <a href="#!" class="collection-item">Saved Property 4</a>
+                            <a href="#!" class="collection-item active">Skyloft Buckhead</a>
+                            <a href="#!" class="collection-item">Elle of Buckhead</a>
+                            <a href="#!" class="collection-item">Aster at Buckhead</a>
+                            <a href="#!" class="collection-item">Marquis of Buckhead</a>
                         </div>
                     </div>
                 </div>
