@@ -1,6 +1,7 @@
 // google maps key without restrictions...
 let $googleMapsKey = "key=API_KEY" + "AIzaSyDyHXb9WjRwhERKpNkK8svc50vOr-YsUJw";
-let $input = $("#textarea2");
+let $addressSubmit = $("#address-search-btn");
+let addressInput = $("#address-text");
 
 // API call for google maps  .js api
 function getLocation() {
@@ -15,3 +16,8 @@ function getLocation() {
 		console.log(res);
 	});
 }
+
+$addressSubmit.on("submit", function() {
+	let address = addressInput.val();
+	console.log(address);
+});
