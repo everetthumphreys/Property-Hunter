@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>Property Hunting</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./assets/css/style.css">
@@ -35,23 +35,19 @@
                     <form class="col s12">
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+                                <textarea id="textarea2" class="materialize-textarea apartmentInput" data-length="120"></textarea>
                                 <label for="textarea2">Parameter</label>
                                 <p>
                                     <label>
-                                        <input name="group1" type="radio" checked />
+                                        <input name="priority" type="radio" id="low" />
                                         <span>Low</span>
                                     </label>
-                                </p>
-                                <p>
                                     <label>
-                                        <input name="group1" type="radio" checked />
+                                        <input name="priority" type="radio" id="medium" />
                                         <span>Medium</span>
                                     </label>
-                                </p>
-                                <p>
                                     <label>
-                                        <input name="group1" type="radio" checked />
+                                        <input name="priority" type="radio" id="high" />
                                         <span>High</span>
                                     </label>
                                 </p>
@@ -180,8 +176,10 @@
 
     </div>
 
-    <script src="./assets/javascript/script.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./assets/javascript/script.js"></script>
 
 </body>
 
