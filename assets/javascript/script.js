@@ -3,6 +3,11 @@ $(document).ready(function () {
     let templateScorePoints = 0;
     let checkListScorePoints = 0;
 
+    //localStorage items
+    let localStoragePrefs = JSON.parse(localStorage.getItem("prefs")) || [];
+    let localStoragePrefs = JSON.parse(localStorage.getItem("prefs")) || [];
+
+
     function renderTemplate() {
         let parameterInput = $('#parameter').val(); //this is the selected parameter
         let priorityInput = $('input[name="priority"]:checked').val(); //this is the selected priority
@@ -21,7 +26,15 @@ $(document).ready(function () {
         }
         let iconElement = $('<i>').attr('class', 'material-icons right').text(iconText); //builds the icon
         collectionItemTemplate.append(iconElement); //appends the icon to collectionItemTemplate
+
+        localStoragePrefs.push({
+            text: parameterInput,
+            value: pointValue
+        }); //update the array in our js file that maps to local storage
+
+        localStorage.setItem("prefs", JSON.stringify(localStoragePrefs)); //because we updated the array that maps to local storage, we need to go ahead and reset localStorage's "prefs" item too
         templateScorePoints += pointValue; //adds points to the templateScorePoints
+        debugger;
         $('.collection-template').append(collectionItemTemplate); //appends the collectionItemTemplate to the page
         renderCheckList(parameterInput, iconText, pointValue); //passes parameterInput, iconText, pointValue to the renderChecklist function
     };
@@ -36,10 +49,22 @@ $(document).ready(function () {
         $('.collection-checklist').append(checkListParagraph); //appends things to the page
     };
 
-    $('.submit-template').on('click', function (event) {
+    $('#submit-template').on('click', function (event) {
+        debugger;
         event.preventDefault();
         renderTemplate();
     })
     //.each class checkbox onclick grab the state (checked or unchecked) then add or subtract based on the state
     //in the same function then calculate the score.
 });
+
+
+//localstorage model for saved properties:
+//each new Location:
+// {
+//     name: "Buckhead Lofts",
+//     prefs: [{text: "close to work", value: 3}, {text: "dog park", value: 1}],
+//     totalScore: 45
+// }
+
+//localStorage could always have the current "high score" which is all the current prefs scores added together
