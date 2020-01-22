@@ -6,6 +6,7 @@
     <title>Property Hunting</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- css links -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -14,9 +15,6 @@
     <!-- script links  -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-
-
-
 
 </head>
 
@@ -139,12 +137,54 @@
                         <label for="textarea2">Notes</label>
                     </div>
                 </div>
+                <p id="commute-div">
+                    <STRONG>COMMUTE TO WORK TIME</STRONG>
+                </p>
+                <!-- check-boxes for the mode of transportation key, in the initDirections()./API.js -->
                 <div class="row">
                     <div class="input-field col s12">
                         <textarea id="address-input" class="materialize-textarea" data-length="120"></textarea>
                         <label for="textarea2">Address</label>
                     </div>
                 </div>
+                <div>
+                    <select id="mode" onchange="calcRoute();">
+                        <p class="collection-item">
+                            <label>
+                                <input type="checkbox" value="travelMode" checked />
+                                <span>DRIVING</span><i class="material-icons right">
+                                    directions_car
+                                </i>
+                            </label>
+                        </p>
+
+                        <p class="collection-item">
+                            <label>
+                                <input type="checkbox" value="travelMode" />
+                                <span>WALKING</span><i class="material-icons right">
+                                    directions_walk
+                                </i>
+                            </label>
+                        </p>
+
+                        <p class="collection-item">
+                            <label>
+                                <input type="checkbox" value="travelMode" />
+                                <span>CYCLING</span><i class="material-icons right">
+                                    directions_bike
+                                </i>
+                            </label>
+                        </p>
+
+                        <p class="collection-item">
+                            <label>
+                                <input type="checkbox" value="travelMode" />
+                                <span>TRANSIT</span><i class="material-icons right">
+                                    directions_bus
+                                </i>
+                            </label>
+                        </p>
+                    </select></div>
                 <div class="row">
                     <div class="input-field col s12">
                         <button id="submit-btn" class="btn waves-effect waves-light" type="submit" name="action">Submit
@@ -178,9 +218,6 @@
                     </div>
                 </div>
             </div>
-
-
-
         </div>
 
     </div>
