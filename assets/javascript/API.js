@@ -2,6 +2,7 @@
 // - Get maps API
 // - Have it apply and take in a location.
 let $googleMapsKey = "key=API_KEY" + "AIzaSyDyHXb9WjRwhERKpNkK8svc50vOr-YsUJw";
+
 let $input = $("#textarea2");
 
 // API call for google maps .js api;
