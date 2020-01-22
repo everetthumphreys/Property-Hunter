@@ -38,7 +38,7 @@ function initMap() {
 		);
 		infoWindow = new google.maps.InfoWindow();
 	} else {
-		// Browser doesn't support Geolocation
+		// if the Browser doesn't support Geolocation
 		handleLocationError(false, infoWindow, map.getCenter());
 	}
 }
