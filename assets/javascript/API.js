@@ -1,17 +1,19 @@
 // google maps key without restrictions...
-let $googleMapsKey = "key=API_KEY" + "AIzaSyDyHXb9WjRwhERKpNkK8svc50vOr-YsUJw";
-let $input = $("#textarea2");
+// let googleMapsKey = "key=API_KEY" + "AIzaSyDyHXb9WjRwhERKpNkK8svc50vOr-YsUJw";
+let $input = $("#address-input");
+let $submit = $("#submit-btn");
 
 // API call for google maps .js api
-function getLocation() {
-	let mapsURL =
-		"https://maps.googleapis.com/maps/api/js?" +
-		googleMapsKey +
-		"&callback=initMap";
-	$.ajax({
-		url: mapsURL,
-		method: "GET"
-	}).then(function(res) {
-		console.log(res);
+
+let map;
+function initMap() {
+	map = new google.maps.Map(document.getElementById("map"), {
+		center: { lat: 33.749, lng: -84.38633 },
+		zoom: 9
 	});
 }
+
+$submit.on("click", function() {
+	let address = $input.val();
+	console.log(address);
+});
