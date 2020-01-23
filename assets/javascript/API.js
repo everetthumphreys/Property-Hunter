@@ -2,6 +2,7 @@
 let googleMapsKey = "AIzaSyDyHXb9WjRwhERKpNkK8svc50vOr-YsUJw";
 let $input = $("#address-input");
 let $submit = $("#submit-btn");
+let selectedMode = $("#travelMode").attr("travelMode");
 
 let currentLat;
 let currentLng;
@@ -60,19 +61,12 @@ function initDirections(currentLat, currentLng) {
 
 	function calcRoute() {
 		// var selectedMode = document.getElementById("mode").value;
-		let selectedMode = $("input")
-			.attr("travelMode")
-			.firstChild()
-			.val();
+
 		console.log(selectedMode);
 		var request = {
 			origin: haight,
 			destination: oceanBeach,
 			travelMode: "DRIVING"
-			// travelMode: $("#mode")
-			// 	.children(2)
-			// 	.child(2)
-			// 	.val()
 		};
 		console.log(google.maps);
 		directionsService.route(request, function(response, status) {
@@ -93,21 +87,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 	);
 	infoWindow.open(map);
 }
-
-// function directions(address) {
-// 	let origin = currentLat;
-// 	// currentLng;
-// 	let destination = address.replace(/ /g, "+");
-// 	let directionURL =
-// 		"https://maps.googleapis.com/maps/api/directions/json?origin=" +
-// 		origin +
-// 		"&destination=" +
-// 		destination +
-// 		"&key=" +
-// 		googleMapsKey;
-// 	console.log("origin: " + origin, "dest: " + destination);
-// 	console.log(directionURL);
-// }
 
 // click event for the address to populate directions in the map;  need to append to the div and replace the initial map with a .hide class switch;
 $submit.on("click", function() {
