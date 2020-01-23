@@ -45,7 +45,7 @@ $(document).ready(function() {
 				.append(checklistSpan)
 				.append(icon)
 		); //appends everything each other in the proper order
-		$(".collection-checklist").append(checkListParagraph); //appends things to the page
+		$(".collection-checklist").append(checkListParagraph); //appends things to the
 	}
 
 	function renderPriorityIcon() {
