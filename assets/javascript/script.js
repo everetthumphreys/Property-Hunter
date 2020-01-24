@@ -5,7 +5,7 @@ $(document).ready(function () {
 
     //localStorage items
     // let localStoragePrefs = JSON.parse(localStorage.getItem("prefs")) || [];
-    // let localStoragePrefs = JSON.parse(localStorage.getItem("prefs")) || [];
+    let localStoragePrefs = JSON.parse(localStorage.getItem("prefs")) || [];
 
 
     function renderTemplate() {
@@ -24,8 +24,9 @@ $(document).ready(function () {
             iconText = 'favorite'; //sets the icon to high
             pointValue = 3; //sets the points to three
         }
-        let iconElement = $('<i>').attr('class', 'material-icons right').text(iconText); //builds the icon
-        collectionItemTemplate.append(iconElement); //appends the icon to collectionItemTemplate
+        let iconElement = $('<i>').attr('class', 'material-icons right').text(iconText); //builds the priority icon
+        let templateItemCancel = $('<i>').attr('class', 'material-icons left cancel').text("cancel"); //builds the cancel icon
+        collectionItemTemplate.append(templateItemCancel).append(iconElement); //appends the icon to collectionItemTemplate
 
         localStoragePrefs.push({
             text: parameterInput,
@@ -44,13 +45,12 @@ $(document).ready(function () {
         let checkListLabel = $('<label>');
         let checkListInput = $('<input>').attr('type', 'checkbox').attr('value', pointValue);
         let checklistSpan = $('<span>').text(parameterInput);
-        let icon = $('<i>').attr('class', 'material-icons right').text(ic457890-=\onText); //lines 30-34 are building the checklist
+        let icon = $('<i>').attr('class', 'material-icons right').text(iconText); //lines 30-34 are building the checklist
         checkListParagraph.append(checkListLabel.append(checkListInput).append(checklistSpan).append(icon)); //appends everything each other in the proper order
         $('.collection-checklist').append(checkListParagraph); //appends things to the page
     };
 
     $('#submit-template').on('click', function (event) {
-        debugger;
         event.preventDefault();
         renderTemplate();
     })
