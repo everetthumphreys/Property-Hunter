@@ -3,6 +3,7 @@ let googleMapsKey = "AIzaSyDyHXb9WjRwhERKpNkK8svc50vOr-YsUJw";
 let $input = $("#address-input");
 let $submit = $("#submit-btn");
 let selectedMode = $("#travelMode").attr("travelMode");
+let $jokeDiv = $("#joke");
 
 let currentLat;
 let currentLng;
@@ -43,30 +44,34 @@ function initMap() {
 		handleLocationError(false, infoWindow, map.getCenter());
 	}
 }
-function initDirections(currentLat, currentLng) {
+function initDirections() {
 	var directionsService = new google.maps.DirectionsService();
 	var directionsRenderer = new google.maps.DirectionsRenderer();
 	var latLng = currentLat + ", " + currentLng;
 	var mapOptions = {
 		zoom: 12,
-		center: latLng
+		center: {
+			lat: currentLat,
+			lng: currentLng
+		}
 	};
 	console.log(currentLng, currentLat);
 	var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 	directionsRenderer.setMap(map);
 
 	function calcRoute() {
-		var address = $("#address-input");
+		var address = $("#address-input").val();
 		var encodedAddress = address.trim().replace(/ /g, "+");
 		var latLng = currentLat + ", " + currentLng;
-		console.log(latLng);
+		// console.log(latLng);
 
 		var request = {
 			origin: latLng,
 			destination: encodedAddress,
 			travelMode: "DRIVING"
 		};
-		console.log(google.maps);
+		console.log(request);
+		// console.log(google.maps);
 		directionsService.route(request, function(response, status) {
 			if (status == "OK") {
 				directionsRenderer.setDirections(response);
@@ -89,6 +94,18 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 // click event for the address to populate directions in the map;  need to append to the div and replace the initial map with a .hide class switch;
 $submit.on("click", function() {
 	let address = $input.val();
-	// directions(address);
+	dadJoke();
 	initDirections(address);
 });
+
+function dadJoke() {
+	let dadJokeURL = "https://icanhazdadjoke.com/slack";
+	$.ajax({
+		url: dadJokeURL,
+		method: "GET"
+	}).then(function(res) {
+		let joke = res.attachments["0"].fallback;
+		$jokeDiv.empty().append(joke);
+		$jokeDiv.addClass("show");
+	});
+}
