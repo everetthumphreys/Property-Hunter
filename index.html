@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<html class="no-js">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +15,6 @@
     <!-- script links  -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-
 </head>
 
 <body>
@@ -28,7 +27,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col s4">Template
+            <div class="col s4">
                 <div class="divider"></div>
                 <div class="row">
                     <form class="col s12">
@@ -39,23 +38,29 @@
                                 <label for="textarea2">Parameter</label>
                                 <p>
                                     <label>
-                                        <input class="priority-radio" data-attr="prior-low" name="priority" type="radio"
-                                            id="low" value="low" />
-                                        <span>Low</span>
-                                    </label>
-                                    <label>
-                                        <input class="priority-radio" data-attr="prior-medium" name="priority"
-                                            type="radio" id="medium" value="medium" />
-                                        <span>Medium</span>
-                                    </label>
-                                    <label>
-                                        <input class="priority-radio" data-attr="prior-high" name="priority"
-                                            type="radio" id="high" value="high" />
-                                        <span>High</span>
+                                        <input class="priority-radio" data-attr="prior-low" name="priority" type="radio" id="low" value="low"/>
+                                        <span>Low</span><i class="material-icons right">
+                                            panorama_fish_eye
+                                        </i>
                                     </label>
                                 </p>
-                                <button class="btn waves-effect waves-light submit-template" type="submit"
-                                    name="action">Submit
+                                <p>
+                                    <label>
+                                        <input class="priority-radio" data-attr="prior-medium" name="priority" type="radio" id="medium" value="medium"/>
+                                        <span>Medium</span><i class="material-icons right">
+                                            favorite_border
+                                        </i>
+                                    </label>
+                                </p>
+                                <p>
+                                    <label>
+                                        <input class="priority-radio" data-attr="prior-high" name="priority" type="radio" id="high" value="high"/>
+                                        <span>High</span><i class="material-icons right">
+                                            favorite
+                                        </i>
+                                    </label>
+                                </p>
+                                <button class="btn waves-effect waves-light submit-template" type="submit" name="action">Save Preference
                                     <i class="material-icons right">send</i>
                                 </button>
                             </div>
@@ -64,7 +69,7 @@
                 </div>
                 <div class="row">
                     <div class="col s12">
-                        <span>Ideal Apartment</span>
+                        <span>Preferences</span>
                         <div class="divider"></div>
                         <div class="collection collection-template">
                             <p class="collection-item">Near Work <i class="material-icons right">
@@ -83,7 +88,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col s4">Checklist
+            <div class="col s4">
                 <div class="divider"></div>
                 <div class="row">
                     <div class="input-field col s12">
@@ -93,6 +98,8 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
+                        Checklist
+                        <div class="divider"></div>
                         <div class="collection">
                             <form action="#" class="collection-checklist">
                                 <p class="collection-item">
@@ -147,7 +154,19 @@
                         <label for="textarea2">Address</label>
                     </div>
                 </div>
-                <div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Save Apartment
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        Map
+                        <div class="divider"></div>
+                    </div>
                     <select id="mode" onchange="calcRoute()">
                         <div id="travelMode">
                             <p class="collection-item">
@@ -158,6 +177,41 @@
                                     </i>
                                 </label>
                             </p>
+                                                        <p class="collection-item">
+                                <label>
+                                    <input type="checkbox" value="travelMode" />
+                                    <span>WALKING</span><i class="material-icons right">
+                                        directions_walk
+                                    </i>
+                                </label>
+                            </p>
+
+                            <p class="collection-item">
+                                <label>
+                                    <input type="checkbox" value="travelMode" />
+                                    <span>CYCLING</span><i class="material-icons right">
+                                        directions_bike
+                                    </i>
+                                </label>
+                            </p>
+
+                            <p class="collection-item">
+                                <label>
+                                    <input type="checkbox" value="travelMode" />
+                                    <span>TRANSIT</span><i class="material-icons right">
+                                        directions_bus
+                                    </i>
+                                </label>
+                            </p>
+                            <div class="input-field">
+                                <button id="submit-btn" class="btn waves-effect waves-light" type="submit"
+                                    name="action">Get
+                                    Directions
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                        </div>
+                    </select>
 
                             <p class="collection-item">
                                 <label>
@@ -196,7 +250,7 @@
                     </select>
                 </div>
             </div>
-            <div class="col s4">Score
+            <div class="col s4">
                 <div class="divider"></div>
                 <div class="row">
                     <div class="col s12">
