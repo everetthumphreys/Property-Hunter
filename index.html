@@ -7,6 +7,7 @@
     <title>Property Hunting</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- css links -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -14,12 +15,11 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 
 
-    <!-- script links -->
-    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
-    <!-- <script src="./assets/javascript/script.js" defer></script> -->
 
-    <!-- pretend I added a bunch of cool html here -->
-    <!-- finish mobile responsive work -->
+    <!-- script links  -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
 </head>
 
 <body>
@@ -39,11 +39,14 @@
                     <form class="col s12">
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea id="parameter" class="materialize-textarea apartmentInput" data-length="120"></textarea>
+                                <textarea id="parameter" class="materialize-textarea apartmentInput"
+                                    data-length="120"></textarea>
                                 <label for="textarea2">Create Preference</label>
+
                                 <p>
                                     <label>
-                                        <input class="priority-radio" data-attr="prior-low" name="priority" type="radio" id="low" value="low"/>
+                                        <input class="priority-radio" data-attr="prior-low" name="priority" type="radio"
+                                            id="low" value="low" />
                                         <span>Low</span><i class="material-icons right">
                                             panorama_fish_eye
                                         </i>
@@ -51,7 +54,8 @@
                                 </p>
                                 <p>
                                     <label>
-                                        <input class="priority-radio" data-attr="prior-medium" name="priority" type="radio" id="medium" value="medium"/>
+                                        <input class="priority-radio" data-attr="prior-medium" name="priority"
+                                            type="radio" id="medium" value="medium" />
                                         <span>Medium</span><i class="material-icons right">
                                             favorite_border
                                         </i>
@@ -59,13 +63,15 @@
                                 </p>
                                 <p>
                                     <label>
-                                        <input class="priority-radio" data-attr="prior-high" name="priority" type="radio" id="high" value="high"/>
+                                        <input class="priority-radio" data-attr="prior-high" name="priority"
+                                            type="radio" id="high" value="high" />
                                         <span>High</span><i class="material-icons right">
                                             favorite
                                         </i>
                                     </label>
                                 </p>
-                                <button class="btn waves-effect waves-light submit-template blue-grey darken-1" type="submit" name="action">Save Preference
+                                <button class="btn waves-effect waves-light submit-template blue-grey darken-1"
+                                    type="submit" name="action">Save Preference
                                     <i class="material-icons right">send</i>
                                 </button>
                             </div>
@@ -77,16 +83,20 @@
                         <span>Preferences</span>
                         <div class="divider"></div>
                         <div class="collection collection-template">
-                            <p class="collection-item"><i class="material-icons left">cancel</i>Near Work <i class="material-icons right">
+                            <p class="collection-item"><i class="material-icons left">cancel</i>Near Work <i
+                                    class="material-icons right">
                                     favorite
                                 </i></p>
-                            <p class="collection-item"><i class="material-icons left">cancel</i>Has a pool <i class="material-icons right">
+                            <p class="collection-item"><i class="material-icons left">cancel</i>Has a pool <i
+                                    class="material-icons right">
                                     favorite_border
                                 </i></p>
-                            <p class="collection-item"><i class="material-icons left">cancel</i>Large closets <i class="material-icons right">
+                            <p class="collection-item"><i class="material-icons left">cancel</i>Large closets <i
+                                    class="material-icons right">
                                     panorama_fish_eye
                                 </i></p>
-                            <p class="collection-item"><i class="material-icons left">cancel</i>Stainless steel appliances <i class="material-icons right">
+                            <p class="collection-item"><i class="material-icons left">cancel</i>Stainless steel
+                                appliances <i class="material-icons right">
                                     panorama_fish_eye
                                 </i></p>
                         </div>
@@ -152,25 +162,59 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+                        <textarea id="address-input" class="materialize-textarea" data-length="120"></textarea>
                         <label for="textarea2">Address</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <div class="direction-object">
+                            <label>
+                                <input class="travelmode-radio" name="priority" type="radio" id="driving"
+                                    value="driving" />
+                                <span>Driving</span><i class="material-icons right">
+                                    directions_car
+                                </i>
+                            </label>
+                        </div>
+                        <div class="direction-object">
+                            <label>
+                                <input class="travelmode-radio" name="priority" type="radio" id="walking"
+                                    value="walking" />
+                                <span>Walking</span><i class="material-icons right">
+                                    directions_walk
+                                </i>
+                            </label>
+                        </div>
+                        <div class="direction-object">
+                            <label>
+                                <input class="travelmode-radio" name="priority" type="radio" id="cycling"
+                                    value="cycling" />
+                                <span>Cycling</span><i class="material-icons right">
+                                    directions_bike
+                                </i>
+                            </label>
+                        </div>
+                        <div class="direction-object">
+                            <label>
+                                <input class="travelmode-radio" name="priority" type="radio" id="transit"
+                                    value="transit" />
+                                <span>TRANSIT</span><i class="material-icons right">
+                                    directions_bike
+                                </i>
+                            </label>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <button class="btn waves-effect waves-light blue-grey darken-1" type="submit" name="action">Save Apartment
+                        <button class="btn waves-effect waves-light blue-grey darken-1" type="submit" name="action">Save
+                            Apartment/Map
                             <i class="material-icons right">send</i>
                         </button>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col s12">
-                        Map
-                        <div class="divider"></div>
-                    </div>
-
-                </div>
-
             </div>
             <!-- row here -->
             <div class="col l4 s12">
@@ -180,6 +224,7 @@
                         <div class="card-panel blue-grey darken-1">
                             <div class="white-text center-align score-calculated">100%</div>
                         </div>
+                        Apartment List
                         <div class="divider"></div>
                         <div class="collection blue-grey darken-1">
                             <a href="#!" class="collection-item">Skyloft Buckhead</a>
@@ -187,6 +232,12 @@
                             <a href="#!" class="collection-item">Aster at Buckhead</a>
                             <a href="#!" class="collection-item">Marquis of Buckhead</a>
                         </div>
+                    </div>
+                </div>
+                <div id="map-div" class="row">
+                    <div id="map" class="col s12">
+                        Map
+                        <div class="divider"></div>
                     </div>
                 </div>
             </div>
@@ -198,8 +249,14 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./assets/javascript/script.js"></script>
+
+    <script src="assets/javascript/API.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyHXb9WjRwhERKpNkK8svc50vOr-YsUJw&callback=initMap"
+        async defer></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/javascript/API.js"></script>
+
 
 </body>
 

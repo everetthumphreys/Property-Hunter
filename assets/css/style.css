@@ -7,8 +7,25 @@ body {
 }
 
 .header {
-    text-align: center;
-    color: white;
+	text-align: center;
+	color: white;
+}
+
+#map {
+	height: 100%;
+	width: 100%;
+	border: solid 2px rgb(0, 150, 136);
+}
+
+#map-div {
+	height: 500px;
+	width: 100%;
+	margin-left: 5px;
+}
+
+#commute-div {
+	display: flex;
+	justify-self: center;
 }
 
 .collection a.collection-item {
@@ -18,3 +35,12 @@ body {
 .score-calculated {
     font-size: 72px;
 }
+
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after {
+    background-color: #546e7a;
+}
+
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
+    background-color: #546e7a;
+}
+
