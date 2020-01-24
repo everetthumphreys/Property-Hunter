@@ -1,4 +1,20 @@
+body {
+    background-color: #e57373;
+}
+
+.container {
+    background-color: #ffffff;
+}
+
 .header {
     text-align: center;
     color: white;
+}
+
+.collection a.collection-item {
+    color: #546e7a;
+}
+
+.score-calculated {
+    font-size: 72px;
 }

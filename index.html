@@ -10,35 +10,36 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
 
     <!-- script links -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="./assets/javascript/API.js" defer></script>
-    <script src="./assets/javascript/script.js" defer></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
+    <!-- <script src="./assets/javascript/script.js" defer></script> -->
 
     <!-- pretend I added a bunch of cool html here -->
     <!-- finish mobile responsive work -->
 </head>
 
 <body>
-    <div class="container">
+    <div class="container z-depth-5">
         <div class="row">
             <div class="col s12">
-                <div class="card-panel teal header">
-                    <h1>Property Hunting</h1>
+                <div class="card-panel blue-grey darken-1 header">
+                    <h1>Apartment List</h1>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col s4">
+            <!-- row here -->
+            <div class="col l4 s12">
                 <div class="divider"></div>
                 <div class="row">
                     <form class="col s12">
                         <div class="row">
                             <div class="input-field col s12">
                                 <textarea id="parameter" class="materialize-textarea apartmentInput" data-length="120"></textarea>
-                                <label for="textarea2">Parameter</label>
+                                <label for="textarea2">Create Preference</label>
                                 <p>
                                     <label>
                                         <input class="priority-radio" data-attr="prior-low" name="priority" type="radio" id="low" value="low"/>
@@ -63,7 +64,7 @@
                                         </i>
                                     </label>
                                 </p>
-                                <button class="btn waves-effect waves-light submit-template" type="submit" name="action">Save Preference
+                                <button class="btn waves-effect waves-light submit-template blue-grey darken-1" type="submit" name="action">Save Preference
                                     <i class="material-icons right">send</i>
                                 </button>
                             </div>
@@ -75,23 +76,24 @@
                         <span>Preferences</span>
                         <div class="divider"></div>
                         <div class="collection collection-template">
-                            <p class="collection-item">Near Work <i class="material-icons right">
+                            <p class="collection-item"><i class="material-icons left">cancel</i>Near Work <i class="material-icons right">
                                     favorite
                                 </i></p>
-                            <p class="collection-item">Has a pool <i class="material-icons right">
+                            <p class="collection-item"><i class="material-icons left">cancel</i>Has a pool <i class="material-icons right">
                                     favorite_border
                                 </i></p>
-                            <p class="collection-item">Large closets <i class="material-icons right">
+                            <p class="collection-item"><i class="material-icons left">cancel</i>Large closets <i class="material-icons right">
                                     panorama_fish_eye
                                 </i></p>
-                            <p class="collection-item">Stainless steel appliances <i class="material-icons right">
+                            <p class="collection-item"><i class="material-icons left">cancel</i>Stainless steel appliances <i class="material-icons right">
                                     panorama_fish_eye
                                 </i></p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col s4">
+            <!-- row here -->
+            <div class="col l4 s12">
                 <div class="divider"></div>
                 <div class="row">
                     <div class="input-field col s12">
@@ -155,7 +157,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <button class="btn waves-effect waves-light" type="submit" name="action">Save Apartment
+                        <button class="btn waves-effect waves-light blue-grey darken-1" type="submit" name="action">Save Apartment
                             <i class="material-icons right">send</i>
                         </button>
                     </div>
@@ -169,16 +171,17 @@
                 </div>
 
             </div>
-            <div class="col s4">
+            <!-- row here -->
+            <div class="col l4 s12">
                 <div class="divider"></div>
                 <div class="row">
                     <div class="col s12">
-                        <div class="card-panel teal">
-                            <p class="white-text valign-wrapper center-align score-calculated">100%</p>
+                        <div class="card-panel blue-grey darken-1">
+                            <div class="white-text center-align score-calculated">100%</div>
                         </div>
                         <div class="divider"></div>
-                        <div class="collection">
-                            <a href="#!" class="collection-item active">Skyloft Buckhead</a>
+                        <div class="collection blue-grey darken-1">
+                            <a href="#!" class="collection-item">Skyloft Buckhead</a>
                             <a href="#!" class="collection-item">Elle of Buckhead</a>
                             <a href="#!" class="collection-item">Aster at Buckhead</a>
                             <a href="#!" class="collection-item">Marquis of Buckhead</a>
@@ -194,6 +197,8 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./assets/javascript/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/javascript/API.js"></script>
 
 </body>
 
