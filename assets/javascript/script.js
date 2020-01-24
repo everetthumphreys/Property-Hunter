@@ -5,7 +5,7 @@ $(document).ready(function() {
 
     //localStorage items
     // let localStoragePrefs = JSON.parse(localStorage.getItem("prefs")) || [];
-    // let localStoragePrefs = JSON.parse(localStorage.getItem("prefs")) || [];
+    let localStoragePrefs = JSON.parse(localStorage.getItem("prefs")) || [];
 
 
     function renderTemplate() {
@@ -16,7 +16,7 @@ $(document).ready(function() {
         let pointValue = 0; //set point value to 0
         if (priorityInput == 'low') {
             iconText = 'panorama_fish_eye'; //sets the icon to low 
-            pointValue = 1; //sets the point value to one
+            pointValue = 1; //sets the point value to onex
         } else if (priorityInput == 'medium') {
             iconText = 'favorite_border'; //sets the icon to medium
             pointValue = 2; //sets the points to 2
@@ -44,13 +44,12 @@ $(document).ready(function() {
         let checkListLabel = $('<label>');
         let checkListInput = $('<input>').attr('type', 'checkbox').attr('value', pointValue);
         let checklistSpan = $('<span>').text(parameterInput);
-        let icon = $('<i>').attr('class', 'material-icons right').text(ic457890 -= \onText); //lines 30-34 are building the checklist
+        let icon = $('<i>').attr('class', 'material-icons right').text(iconText); //lines 30-34 are building the checklist
         checkListParagraph.append(checkListLabel.append(checkListInput).append(checklistSpan).append(icon)); //appends everything each other in the proper order
         $('.collection-checklist').append(checkListParagraph); //appends things to the page
     };
 
     $('#submit-template').on('click', function(event) {
-            debugger;
             event.preventDefault();
             renderTemplate();
         })
