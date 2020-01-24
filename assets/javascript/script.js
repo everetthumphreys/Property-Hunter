@@ -4,8 +4,8 @@ $(document).ready(function () {
     let checkListScorePoints = 0;
 
     //localStorage items
-    let localStoragePrefs = JSON.parse(localStorage.getItem("prefs")) || [];
-    let localStoragePrefs = JSON.parse(localStorage.getItem("prefs")) || [];
+    // let localStoragePrefs = JSON.parse(localStorage.getItem("prefs")) || [];
+    // let localStoragePrefs = JSON.parse(localStorage.getItem("prefs")) || [];
 
 
     function renderTemplate() {
@@ -44,7 +44,7 @@ $(document).ready(function () {
         let checkListLabel = $('<label>');
         let checkListInput = $('<input>').attr('type', 'checkbox').attr('value', pointValue);
         let checklistSpan = $('<span>').text(parameterInput);
-        let icon = $('<i>').attr('class', 'material-icons right').text(iconText); //lines 30-34 are building the checklist
+        let icon = $('<i>').attr('class', 'material-icons right').text(ic457890-=\onText); //lines 30-34 are building the checklist
         checkListParagraph.append(checkListLabel.append(checkListInput).append(checklistSpan).append(icon)); //appends everything each other in the proper order
         $('.collection-checklist').append(checkListParagraph); //appends things to the page
     };
