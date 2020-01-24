@@ -2,6 +2,10 @@ $(document).ready(function() {
 	let templateScorePoints = 0;
 	let checkListScorePoints = 0;
 
+	//localStorage items
+	// let localStoragePrefs = JSON.parse(localStorage.getItem("prefs")) || [];
+	let localStoragePrefs = JSON.parse(localStorage.getItem("prefs")) || [];
+
 	function renderTemplate() {
 		let parameterInput = $("#parameter").val(); //this is the selected parameter
 		let priorityInput = $('input[name="priority"]:checked').val(); //this is the selected priority
@@ -22,9 +26,20 @@ $(document).ready(function() {
 		}
 		let iconElement = $("<i>")
 			.attr("class", "material-icons right")
-			.text(iconText); //builds the icon
-		collectionItemTemplate.append(iconElement); //appends the icon to collectionItemTemplate
+			.text(iconText); //builds the priority icon
+		let templateItemCancel = $("<i>")
+			.attr("class", "material-icons left cancel")
+			.text("cancel"); //builds the cancel icon
+		collectionItemTemplate.append(templateItemCancel).append(iconElement); //appends the icon to collectionItemTemplate
+
+		localStoragePrefs.push({
+			text: parameterInput,
+			value: pointValue
+		}); //update the array in our js file that maps to local storage
+
+		localStorage.setItem("prefs", JSON.stringify(localStoragePrefs)); //because we updated the array that maps to local storage, we need to go ahead and reset localStorage's "prefs" item too
 		templateScorePoints += pointValue; //adds points to the templateScorePoints
+		debugger;
 		$(".collection-template").append(collectionItemTemplate); //appends the collectionItemTemplate to the page
 		renderCheckList(parameterInput, iconText, pointValue); //passes parameterInput, iconText, pointValue to the renderChecklist function
 	}
@@ -45,45 +60,23 @@ $(document).ready(function() {
 				.append(checklistSpan)
 				.append(icon)
 		); //appends everything each other in the proper order
-		$(".collection-checklist").append(checkListParagraph); //appends things to the
+		$(".collection-checklist").append(checkListParagraph); //appends things to the page
 	}
 
-	function renderPriorityIcon() {
-		let iconLow = $("<i>")
-			.attr("class", "material-icons right")
-			.text("panorama_fish_eye"); //set <i> for low
-		let iconMedium = $("<i>")
-			.attr("class", "material-icons right")
-			.text("favorite_border"); //set <i> for medium
-		let iconHigh = $("<i>")
-			.attr("class", "material-icons right")
-			.text("favorite"); //set <i> for high
-
-		if ($(".low")) {
-			$(".low").append(iconLow); //if .low exists append appropriate <i> to it
-			templateScorePoints + 1;
-		}
-		if ($(".medium")) {
-			$(".medium").append(iconMedium); //if .medium exists append appropriate <i> to it
-			templateScorePoints + 2;
-		}
-		if ($(".high")) {
-			$(".high").append(iconHigh); //if .high exists append appropriate <i> to it
-			templateScorePoints + 3;
-		}
-	}
-
-	$(".submit-template").on("click", function(event) {
+	$("#submit-template").on("click", function(event) {
 		event.preventDefault();
 		renderTemplate();
-		renderPriorityIcon();
-		renderCheckList();
 	});
-
 	//.each class checkbox onclick grab the state (checked or unchecked) then add or subtract based on the state
 	//in the same function then calculate the score.
-
-	//Bugs:
-	//Figure out how to prevent the script from repeatedly adding a priority icon on successive clicks
-	//Figure out how to nest the functions in order to produce a usable point value for templateScorePoints and checkListScorePoints
 });
+
+//localstorage model for saved properties:
+//each new Location:
+// {
+//     name: "Buckhead Lofts",
+//     prefs: [{text: "close to work", value: 3}, {text: "dog park", value: 1}],
+//     totalScore: 45
+// }
+
+//localStorage could always have the current "high score" which is all the current prefs scores added together
