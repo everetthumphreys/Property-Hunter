@@ -46,22 +46,17 @@ function initMap() {
 function initDirections(currentLat, currentLng) {
 	var directionsService = new google.maps.DirectionsService();
 	var directionsRenderer = new google.maps.DirectionsRenderer();
-	// var haight = new google.maps.LatLng(37.7699298, -122.4469157);
-	// var oceanBeach = new google.maps.LatLng(
-	// 	37.7683909618184,
-	// 	-122.51089453697205
-	// );
-	// console.log(oceanBeach);
 	var latLng = currentLat + ", " + currentLng;
 	var mapOptions = {
 		zoom: 12,
 		center: latLng
 	};
+	console.log(currentLng, currentLat);
 	var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 	directionsRenderer.setMap(map);
 
 	function calcRoute() {
-		var address = $("#address-input").val();
+		var address = $("#address-input");
 		var encodedAddress = address.trim().replace(/ /g, "+");
 		var latLng = currentLat + ", " + currentLng;
 		console.log(latLng);
