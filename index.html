@@ -7,6 +7,7 @@
     <title>Property Hunting</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- css links -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -14,12 +15,11 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 
 
-    <!-- script links -->
-    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
-    <!-- <script src="./assets/javascript/script.js" defer></script> -->
 
-    <!-- pretend I added a bunch of cool html here -->
-    <!-- finish mobile responsive work -->
+    <!-- script links  -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
 </head>
 
 <body>
@@ -42,6 +42,7 @@
                                 <textarea id="parameter" class="materialize-textarea apartmentInput"
                                     data-length="120"></textarea>
                                 <label for="textarea2">Create Preference</label>
+
                                 <p>
                                     <label>
                                         <input class="priority-radio" data-attr="prior-low" name="priority" type="radio"
@@ -159,12 +160,17 @@
                         <label for="textarea2">Notes</label>
                     </div>
                 </div>
+                <p id="commute-div">
+                    <STRONG>COMMUTE TO WORK TIME</STRONG>
+                </p>
+                <!-- check-boxes for the mode of transportation key, in the initDirections()./API.js -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+                        <textarea id="address-input" class="materialize-textarea" data-length="120"></textarea>
                         <label for="textarea2">Address</label>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="input-field col s12">
                         <div class="direction-object">
@@ -232,8 +238,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col s12">
+                <div id="map-div" class="row">
+                    <div id="map" class="col s12">
                         Map
                         <div class="divider"></div>
                     </div>
@@ -247,8 +253,14 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./assets/javascript/script.js"></script>
+
+    <script src="assets/javascript/API.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyHXb9WjRwhERKpNkK8svc50vOr-YsUJw&callback=initMap"
+        async defer></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/javascript/API.js"></script>
+
 
 </body>
 
