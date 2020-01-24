@@ -24,8 +24,9 @@ $(document).ready(function() {
             iconText = 'favorite'; //sets the icon to high
             pointValue = 3; //sets the points to three
         }
-        let iconElement = $('<i>').attr('class', 'material-icons right').text(iconText); //builds the icon
-        collectionItemTemplate.append(iconElement); //appends the icon to collectionItemTemplate
+        let iconElement = $('<i>').attr('class', 'material-icons right').text(iconText); //builds the priority icon
+        let templateItemCancel = $('<i>').attr('class', 'material-icons left cancel').text("cancel"); //builds the cancel icon
+        collectionItemTemplate.append(templateItemCancel).append(iconElement); //appends the icon to collectionItemTemplate
 
         localStoragePrefs.push({
             text: parameterInput,
