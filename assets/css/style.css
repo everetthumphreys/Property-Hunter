@@ -18,3 +18,10 @@ body {
 .score-calculated {
     font-size: 72px;
 }
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after {
+    background-color: #546e7a;
+}
+
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
+    background-color: #546e7a;
+}
