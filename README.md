@@ -14,7 +14,7 @@ I have lived and moved into and out-of 10 apartments and houses, so far in my sh
 
 # Installation
 
-Clone to your machine locally, or visit the live version at [Weather App](https://everetthumphreys.github.io/Property-Hunter/)!
+Clone to your machine locally, or visit the live version at [Apartment List](https://everetthumphreys.github.io/Property-Hunter/)!
 
 # Built With
 
