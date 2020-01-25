@@ -7,6 +7,7 @@ let currentLng;
 
 // API call for google map * does NOT have the directions
 let map, infoWindow;
+
 function initializeMap() {
 	map = new google.maps.Map(document.getElementById("map"), {
 		center: { lat: 33.749, lng: -84.38633 },
@@ -25,22 +26,23 @@ function initializeMap() {
 				};
 				console.log(position);
 
-				infoWindow.setPosition(pos);
-				infoWindow.setContent("Location found.");
-				infoWindow.open(map);
-				map.setCenter(pos);
-			},
+                infoWindow.setPosition(pos);
+                infoWindow.setContent("Location found.");
+                infoWindow.open(map);
+                map.setCenter(pos);
+            },
 
-			function() {
-				handleLocationError(true, infoWindow, map.getCenter());
-			}
-		);
-		infoWindow = new google.maps.InfoWindow();
-	} else {
-		// if the Browser doesn't support Geolocation
-		handleLocationError(false, infoWindow, map.getCenter());
-	}
+            function() {
+                handleLocationError(true, infoWindow, map.getCenter());
+            }
+        );
+        infoWindow = new google.maps.InfoWindow();
+    } else {
+        // if the Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+    }
 }
+
 function initDirections() {
 	var directionsService = new google.maps.DirectionsService();
 	var directionsRenderer = new google.maps.DirectionsRenderer();
@@ -79,17 +81,18 @@ function initDirections() {
 	calcRoute();
 }
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-	infoWindow.setPosition(pos);
-	infoWindow.setContent(
-		browserHasGeolocation
-			? "Error: The Geolocation service failed."
-			: "Error: Your browser doesn't support geolocation."
-	);
-	infoWindow.open(map);
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(
+        browserHasGeolocation ?
+        "Error: The Geolocation service failed." :
+        "Error: Your browser doesn't support geolocation."
+    );
+    infoWindow.open(map);
 }
 
 // click event for the address to populate directions in the map;  need to append to the div and replace the initial map with a .hide class switch;
 $submit.on("click", function() {
+
 	let address = $("#address-input").val();
 	initDirections(address);
 });
