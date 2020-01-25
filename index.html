@@ -7,11 +7,10 @@
     <title>Property Hunting</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- css links -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+    <script src="./assets/javascript/API.js" async defer></script>
 </head>
 
 <body>
@@ -227,10 +226,13 @@
                         </div>
                     </div>
                 </div>
-                <div id="map-div" class="row">
-                    <div id="map" class="col s12">
+                <div class="row">
+                    <div class="col s12">
                         Map
                         <div class="divider"></div>
+                        <div id="map-div">
+                            <div id="map"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -244,7 +246,6 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyHXb9WjRwhERKpNkK8svc50vOr-YsUJw&callback=initMap"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/javascript/script.js"></script>
-    <script src="./assets/javascript/API.js"></script>
 
 
 </body>
