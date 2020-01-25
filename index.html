@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html class="no-js">
 
 <head>
     <meta charset="utf-8">
@@ -10,7 +9,6 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
-    <script src="./assets/javascript/API.js" async defer></script>
 </head>
 
 <body>
@@ -158,13 +156,12 @@
                         <label for="textarea2">Address</label>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="input-field col s12">
                         <div class="direction-object">
                             <label>
                                 <input class="travelmode-radio" name="priority" type="radio" id="driving"
-                                    value="driving" />
+                                    value="driving" checked />
                                 <span>Driving</span><i class="material-icons right">
                                     directions_car
                                 </i>
@@ -240,12 +237,11 @@
 
     </div>
 
-
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyHXb9WjRwhERKpNkK8svc50vOr-YsUJw&callback=initMap"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/javascript/script.js"></script>
+    <script src="./assets/javascript/API.js" async></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyHXb9WjRwhERKpNkK8svc50vOr-YsUJw&callback=initializeMap" async></script>
 
 
 </body>
