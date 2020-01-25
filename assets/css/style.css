@@ -19,7 +19,7 @@ body {
 
 #map-div {
 	height: 500px;
-	width: 380px;
+	width: 100%;
 	margin-left: 5px;
 }
 
