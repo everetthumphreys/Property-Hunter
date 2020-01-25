@@ -6,7 +6,7 @@ A simple app to help find your next apartment -
 
 The Apartment List app is there to assist anyone looking for a new apartment to live in. Most of us have spend time looking for a new place to live and it is always a stressful time. This app will help minimize the amount of time spent weighing the PROs and CONs of the places you are interested in. We chose to allot multiple perimeters you can individualize on all the apartments you are looking at, giving you a visible score and ultimately leaving you with an obvious victor.
 
-![Project Image](./)
+![Project Image](./assets/images/PropertyHunter-min.png)
 
 # About
 
