@@ -8,13 +8,13 @@ $(document).ready(function() {
         event.preventDefault();
 
         //check if parameter is not empty
-        if ($("#parameter").val() !== "") {
+        if ($("#preference").val() !== "") {
             newRenderTmp();
         }
     });
 
     //Add property button clicked
-    $("#p-button").on("click", function(event) {
+    $("#save-apartment").on("click", function(event) { 
         event.preventDefault();
 
         if ($("#checkList").val() !== "") {
@@ -22,7 +22,7 @@ $(document).ready(function() {
                 property: $("#checkList").val(),
                 note: $("#notes").val(),
                 address: $("#address-input").val(),
-                trasit: $('input[name="transit"]:checked').val(),
+                transit: $('input[name="transit"]:checked').val(),
                 preferences: buildCheckedPreferences()
             };
             var prop = localStorage.getItem("properties");
@@ -47,42 +47,31 @@ $(document).ready(function() {
 let templateScorePoints = 0;
 let checkListScorePoints = 0;
 
-//BUild up the paramater
+//Build the preference
 function newRenderTmp() {
-    var result = [];
     var data = {
-        param: $("#parameter").val(),
+        param: $("#preference").val(),
         priority: $('input[name="priority"]:checked').val()
     };
     var prior = setPriorityIcon(data.priority);
-    var p = localStorage.getItem("parameters");
-    if (p) {
-        result = JSON.parse(p);
-        var newData = {
-            text: data.param,
-            value: prior.pointValue
-        };
-        newData.id = result.length + 1;
-        result.push(newData);
-        localStorage.setItem("parameters", JSON.stringify(result));
-        $(".collection-checklist").empty();
-        theTemplate();
-    } else {
-        var newData = {
-            text: data.param,
-            value: prior.pointValue
-        };
-        newData.id = 1;
-        result.push(newData);
-        localStorage.setItem("parameters", JSON.stringify(result));
-        $(".collection-checklist").empty();
-        theTemplate();
-    }
+    var p = localStorage.getItem("preferences");
+    var result = p ? JSON.parse(p) : [];
+    var newData = {
+        text: data.param,
+        value: prior.pointValue
+    };
+    newData.id = result.length + 1;
+    result.push(newData);
+    localStorage.setItem("preferences", JSON.stringify(result));
+    $(".collection-checklist").empty();
+    theTemplate();
+    //add up the points in the stored objects
 }
 
-// THis module renders the parameter template
+// This module renders the parameter template
 function theTemplate() {
-    var data = JSON.parse(localStorage.getItem("parameters"));
+    templateScorePoints = 0;
+    var data = JSON.parse(localStorage.getItem("preferences"));
     $(".collection-template").empty();
     if (data) {
         for (const iterator of data) {
@@ -93,13 +82,14 @@ function theTemplate() {
                 .attr("class", "material-icons right")
                 .text(buildIconSet(iterator.value)); //builds the priority icon
             let templateItemCancel = $("<i>")
-                .attr("onclick", "reove(" + iterator.id + ")")
+                .attr("onclick", "remove(" + iterator.id + ")")
                 .attr("class", "material-icons left cancel")
                 .text("cancel"); //builds the cancel icon
             collectionItemTemplate.append(templateItemCancel).append(iconElement); //appends the icon to collectionItemTemplate
             templateScorePoints += iterator.value; //adds points to the templateScorePoints
             $(".collection-template").append(collectionItemTemplate); //appends the collectionItemTemplate to the pag
             renderCheckList(iterator.text, iterator.value, iterator.value);
+            console.log(templateScorePoints)
         }
     }
 }
@@ -174,38 +164,64 @@ function renderCheckList(parameterInput, iconText, pointValue) {
     $(".collection-checklist").append(checkListParagraph); //appends things to the page
 }
 
-// This module will help build all preference checkboxe
+// This will calculate and display the score.
+
+
+// This module will help build all preference checkboxes and add the checklist score
 function buildCheckedPreferences() {
     var res = [];
+    let checkValue = 0;
     $("input:checkbox[name=my-check]:checked").each(function() {
         res.push($(this).val());
+        $.each(res, function() {
+            if (this == 1) {
+                checkValue += 1;
+            } else if (this == 2) {
+                checkValue += 2;
+            } else if (this == 3) {
+                checkValue += 3;
+            }
+        });
+        //we need to use the checked values to determine the score of the checked items.
     });
-    console.log(res);
+    checkListScorePoints += checkValue;
     return res;
 }
 
-// This module will generate the apartment list
-function apartmentList() {
-    var prop = JSON.parse(localStorage.getItem("properties"));
-    $("#apart").empty();
-    if (prop) {
-        for (const iterator of prop) {
-            let apartment = $("<a>")
-                .attr("href", "#!")
-                .attr("class", "collection-item")
-                .text(iterator.property);
-            $("#apart").append(apartment);
-        }
-    }
+//This calculates the actual score of the apartment
+function writeScore() {
+    var scoreInProgress = checkListScorePoints/templateScorePoints * 100;
+    score = Math.floor(scoreInProgress);
+    $(".score-calculated").text(score + "%");
 }
 
-//Remove the deleted parameter
-function reove(id) {
-    var data = JSON.parse(localStorage.getItem("parameters"));
+//Click listener for checkboxes
+$('input[name="my-check"]').on("click", function(event) {
+    event.preventDefault();
+    writeScore();
+    }
+);
+
+// This module will generate the apartment list
+function apartmentList() {
+    $('input[type="checkbox"]').click(function(){
+        if($(this).prop("checked") == true){
+            alert("Checkbox is checked.");
+        }
+        else if($(this).prop("checked") == false){
+            alert("Checkbox is unchecked.");
+        }
+    });      
+}
+
+
+//Remove the deleted preference
+function remove(id) {
+    var data = JSON.parse(localStorage.getItem("preferences"));
     for (let i = 0; i < data.length; i++) {
         if (data[i].id === id) {
             data.splice(i, 1);
-            localStorage.setItem("parameters", JSON.stringify(data));
+            localStorage.setItem("preferences", JSON.stringify(data));
             $(".collection-checklist").empty();
             theTemplate();
 
